@@ -1,26 +1,255 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary-color: #4CAF50;
+  --secondary-color: #45a049;
+  --background-color: #f0f8f0;
+  --text-color: #333;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-kr), var(--font-inter), sans-serif;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-color);
+}
+
+.main-nav {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-content ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-content a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.home-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.recent-photos-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.recent-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.photo-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 1rem;
+}
+
+.flower-frame {
+  border-radius: 50% 50% 50% 50% / 10% 10% 10% 10%;
+  border: 8px solid transparent;
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(45deg, #ff69b4, #4CAF50) border-box;
+  padding: 5px;
+}
+
+.photo-info {
+  padding: 0.5rem;
+}
+
+.photo-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.like-button, .dislike-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background: var(--background-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.like-button:hover {
+  background: #ffebf3;
+}
+
+.dislike-button:hover {
+  background: #f0f0f0;
+}
+
+.comments-preview {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.view-more-button {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 300px;
+}
+
+.view-more-button:hover {
+  background: var(--secondary-color);
+}
+.upload-section {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.file-input {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* 두 줄 레이아웃 */
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.photo-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.comments-section {
+  padding: 1rem;
+}
+
+.comments-list {
+  margin-bottom: 1rem;
+}
+
+.comment {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.comment-form {
+  display: flex;
+  gap: 1rem;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.comment-form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-noto-kr), var(--font-inter), sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.main-nav h2 {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-top: 0.5rem;
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
